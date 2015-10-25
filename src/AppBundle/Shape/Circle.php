@@ -1,4 +1,5 @@
 <?php
+
 namespace AppBundle\Shape;
 
 class Circle implements Shape

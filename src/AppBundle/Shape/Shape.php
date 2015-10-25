@@ -1,4 +1,5 @@
 <?php
+
 namespace AppBundle\Shape;
 
 interface Shape

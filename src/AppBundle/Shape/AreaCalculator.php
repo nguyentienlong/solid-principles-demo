@@ -1,4 +1,5 @@
 <?php
+
 namespace AppBundle\Shape;
 
 class AreaCalculator
@@ -9,6 +10,7 @@ class AreaCalculator
         foreach ($shapes as $shape) {
             $area[] = $shape->area();
         }
-        return array_sum($area) ;
+
+        return array_sum($area);
     }
 }

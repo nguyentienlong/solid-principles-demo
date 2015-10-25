@@ -1,4 +1,5 @@
 <?php
+
 namespace AppBundle\InterfacePrinciple;
 
 class Captain
@@ -6,7 +7,8 @@ class Captain
     public function manage(ManagableInterface $worker)
     {
         $log = '';
-        $log.=$worker->manage();
+        $log .= $worker->manage();
+
         return $log;
     }
 }
