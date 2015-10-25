@@ -11,6 +11,6 @@ class ExtendBaseClassA extends BaseClassA
 
     public function printAll()
     {
-        return json_encode($this->dumpArr);
+        return $this->dumpArr;
     }
 }
