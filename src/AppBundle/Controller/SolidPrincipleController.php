@@ -13,6 +13,9 @@ use AppBundle\Shape\AreaCalculator;
 use AppBundle\InterfacePrinciple\Captain;
 use AppBundle\InterfacePrinciple\HumanWorker;
 use AppBundle\InterfacePrinciple\AndroidWorker;
+use AppBundle\LiskovSubstitution\FooService;
+use AppBundle\LiskovSubstitution\BaseClassA;
+use AppBundle\LiskovSubstitution\ExtendBaseClassA;
 
 class SolidPrincipleController extends Controller
 {
@@ -44,7 +47,7 @@ class SolidPrincipleController extends Controller
         //we can move area calculator to services.yml
         $area = $calculator->calculate($shapes);
 
-        return new Response('area ' . $area);
+        return new Response('area '.$area);
     }
 
     /**
@@ -63,5 +66,18 @@ class SolidPrincipleController extends Controller
         $output .= $captain->manage($androidWorker);
 
         return new Response($output);
+    }
+    /**
+     * @Route("/solid/liskov", name="solid_liskov")	
+     */
+    public function liskovSubstitutionAction(Request $request)
+    {
+        $fooService1 = new FooService(new BaseClassA());
+        $fooService2 = new FooService(new ExtendBaseClassA());
+
+        $output1 = $fooService1->doSomeThing();
+        $output2 = $fooService2->doSomeThing();
+
+        return new Response($output1.' | '.$output2);
     }
 }

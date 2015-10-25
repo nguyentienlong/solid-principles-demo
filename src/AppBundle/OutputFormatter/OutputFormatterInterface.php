@@ -1,8 +1,9 @@
 <?php
+
 namespace AppBundle\OutputFormatter;
 
 /**
- * Output Formatter Interface
+ * Output Formatter Interface.
  */
 interface OutputFormatterInterface
 {
