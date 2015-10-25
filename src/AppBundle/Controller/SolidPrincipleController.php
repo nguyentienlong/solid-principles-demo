@@ -75,8 +75,8 @@ class SolidPrincipleController extends Controller
         $fooService1 = new FooService(new BaseClassA());
         $fooService2 = new FooService(new ExtendBaseClassA());
 
-        $output1 = json_encode($fooService1->doSomeThing());
-        $output2 = json_encode($fooService2->doSomeThing());
+        $output1 = $fooService1->doSomeThing();
+        $output2 = $fooService2->doSomeThing();
 
         return new Response($output1.' | '.$output2);
     }
