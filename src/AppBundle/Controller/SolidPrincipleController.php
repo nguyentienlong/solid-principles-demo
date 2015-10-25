@@ -37,8 +37,9 @@ class SolidPrincipleController extends Controller
             new Square(5, 10),
             new Circle(5),
         ];
+        $calculator = new AreaCalculator();
         //we can move area calculator to services.yml
-        $area = AreaCalculator::calculate($shapes);
+        $area = $calculator->calculate($shapes);
 
         return new Response('area ' . $area);
     }
