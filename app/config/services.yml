@@ -7,5 +7,13 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+
+    json_formatter:
+        class: AppBundle\OutputFormatter\JsonOutputFormatter
+    html_formatter:
+        class: AppBundle\OutputFormatter\HtmlOutputFormatter
+    finance_repository:
+        class: AppBundle\Repository\FinanceRepository
     finance_service:
         class: AppBundle\Service\FinanceService
+        arguments: ["@finance_repository", "@json_formatter"]
