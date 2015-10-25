@@ -10,9 +10,9 @@ use Carbon\Carbon;
 use AppBundle\Shape\Square;
 use AppBundle\Shape\Circle;
 use AppBundle\Shape\AreaCalculator;
-use AppBundle\Worker\Captain;
-use AppBundle\Worker\HumanWorker;
-use AppBundle\Worker\AndroidWorker;
+use AppBundle\InterfacePrinciple\Captain;
+use AppBundle\InterfacePrinciple\HumanWorker;
+use AppBundle\InterfacePrinciple\AndroidWorker;
 
 class SolidPrincipleController extends Controller
 {
@@ -61,7 +61,7 @@ class SolidPrincipleController extends Controller
 
         $androidWorker = new AndroidWorker();
         $output .= $captain->manage($androidWorker);
-        
+
         return new Response($output);
     }
 }
