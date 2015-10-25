@@ -7,6 +7,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Carbon\Carbon;
+use AppBundle\Shape\Square;
+use AppBundle\Shape\Circle;
+use AppBundle\Shape\AreaCalculator;
 
 class SolidPrincipleController extends Controller
 {
@@ -24,5 +27,19 @@ class SolidPrincipleController extends Controller
         $financeReport = $financeService->getReport($start, $end, $filters, $reportType);
 
         return new Response($financeReport);
+    }
+    /**
+     * @Route("/solid/oc", name="solid_oc")
+     */
+    public function openClosePrincipleAction(Request $request)
+    {
+        $shapes = [
+            new Square(5, 10),
+            new Circle(5),
+        ];
+        //we can move area calculator to services.yml
+        $area = AreaCalculator::calculate($shapes);
+
+        return new Response('area ' . $area);
     }
 }
