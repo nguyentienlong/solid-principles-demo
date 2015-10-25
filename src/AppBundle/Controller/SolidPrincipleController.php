@@ -10,6 +10,9 @@ use Carbon\Carbon;
 use AppBundle\Shape\Square;
 use AppBundle\Shape\Circle;
 use AppBundle\Shape\AreaCalculator;
+use AppBundle\InterfacePrinciple\Captain;
+use AppBundle\InterfacePrinciple\HumanWorker;
+use AppBundle\InterfacePrinciple\AndroidWorker;
 
 class SolidPrincipleController extends Controller
 {
@@ -42,5 +45,23 @@ class SolidPrincipleController extends Controller
         $area = $calculator->calculate($shapes);
 
         return new Response('area ' . $area);
+    }
+
+    /**
+     * @Route("/solid/ip",name="solid_ip")
+     */
+    public function interfacePrincipleAction(Request $request)
+    {
+        $output = '';
+
+        $captain = new Captain();
+
+        $humanWorker = new HumanWorker();
+        $output .= $captain->manage($humanWorker);
+
+        $androidWorker = new AndroidWorker();
+        $output .= $captain->manage($androidWorker);
+
+        return new Response($output);
     }
 }
