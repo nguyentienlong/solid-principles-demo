@@ -1,3 +1,5 @@
+for each branch will be a principle,
+plz check out the branch correspond to each principle
 # solid-principles-demo
 1. single resonsibility principle
 2. open close principle
